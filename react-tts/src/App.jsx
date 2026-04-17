@@ -121,19 +121,16 @@ function App() {
           </button>
         </div>
         
-        <div style={{ lineHeight: '1.6', color: 'var(--text-muted)' }}>
-          <h3 style={{ color: 'var(--text-main)', marginTop: '1.5rem' }}>How to use</h3>
-          <p>Type your text into the main box, or upload a `.txt` / `.pdf` file. Choose your preferred voice, tweak the rate and pitch, and click "Convert & Play" to listen.</p>
-
-          <h3 style={{ color: 'var(--text-main)', marginTop: '1.5rem' }}>Features</h3>
+        <div style={{ lineHeight: '1.8', color: 'var(--text-muted)' }}>
+          <h3 style={{ color: 'var(--text-main)', marginTop: '1.5rem', marginBottom: '1rem' }}>How to Use PlayVoice</h3>
+          
           <ul style={{ paddingLeft: '1.5rem' }}>
-            <li>Native in-browser text-to-speech with no external dependencies for playback.</li>
-            <li>Direct extraction of texts from PDF documents and Text files.</li>
-            <li>Download the full requested text directly as an MP3 file (powered by local backend server).</li>
+            <li><strong>Step 1: Input Text.</strong> Type or paste your text directly into the main text area. Alternatively, you can click <em>"Choose File"</em> to upload a <code>.txt</code> or <code>.pdf</code> file to automatically extract the text.</li>
+            <li style={{ marginTop: '0.8rem' }}><strong>Step 2: Choose a Voice.</strong> Use the dropdown menu below the text box to select your preferred accent and language voice.</li>
+            <li style={{ marginTop: '0.8rem' }}><strong>Step 3: Adjust Settings.</strong> Tweak the <em>Rate (Speed)</em> and <em>Pitch</em> sliders until you find the perfect tone.</li>
+            <li style={{ marginTop: '0.8rem' }}><strong>Step 4: Play and Control.</strong> Click <strong>Convert & Play</strong> to start listening. You can use the <strong>Pause/Resume</strong> button to hold your place, or <strong>Stop</strong> to completely clear the playback.</li>
+            <li style={{ marginTop: '0.8rem' }}><strong>Step 5: Download.</strong> Want to save it for later? Make sure your local backend server is running and click <strong>Download MP3</strong> to save the generated audio file to your device.</li>
           </ul>
-
-          <h3 style={{ color: 'var(--text-main)', marginTop: '1.5rem' }}>Note</h3>
-          <p>Please ensure that the local backend server is running on port 5000 in order to use the full MP3 download functionality.</p>
         </div>
       </div>
       
