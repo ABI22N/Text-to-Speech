@@ -130,7 +130,6 @@ function App() {
             <li>Native in-browser text-to-speech with no external dependencies for playback.</li>
             <li>Direct extraction of texts from PDF documents and Text files.</li>
             <li>Download the full requested text directly as an MP3 file (powered by local backend server).</li>
-            <li>Dynamic UI with modern glassmorphism design.</li>
           </ul>
 
           <h3 style={{ color: 'var(--text-main)', marginTop: '1.5rem' }}>Note</h3>
