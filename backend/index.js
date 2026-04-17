@@ -15,21 +15,14 @@ app.post('/api/download-audio', async (req, res) => {
     if (!text) {
       return res.status(400).json({ error: 'Text is required' });
     }
-
-    // google-tts-api handles splitting text into chunks automatically
-    // and returns an array of base64 strings corresponding to pieces of audio.
     const results = await googleTTS.getAllAudioBase64(text, {
       lang: lang.split('-')[0], 
       slow: false,
       host: 'https://translate.google.com',
       timeout: 10000,
     });
-
-    // Combine all base64 chunks into a single binary Buffer
     const buffers = results.map(result => Buffer.from(result.base64, 'base64'));
     const combinedBuffer = Buffer.concat(buffers);
-
-    // Set headers to trigger a file download natively
     res.setHeader('Content-Type', 'audio/mpeg');
     res.setHeader('Content-Disposition', 'attachment; filename="audio.mp3"');
     res.setHeader('Content-Length', combinedBuffer.length);

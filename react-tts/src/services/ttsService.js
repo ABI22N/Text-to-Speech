@@ -16,8 +16,6 @@ export const downloadTTSAudio = async (text, lang) => {
 
     const blob = await response.blob();
     const tempUrl = window.URL.createObjectURL(blob);
-    
-    // Create an invisible anchor tag to trigger the browser's download manager
     const a = document.createElement('a');
     a.style.display = 'none';
     a.href = tempUrl;

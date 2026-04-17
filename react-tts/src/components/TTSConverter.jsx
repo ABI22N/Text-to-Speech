@@ -12,13 +12,11 @@ const TTSConverter = ({ text, setText }) => {
         const fileReader = new FileReader();
         fileReader.onload = async function() {
           const typedarray = new Uint8Array(this.result);
-          // Use loaded PDF.js from window
           const pdf = await window.pdfjsLib.getDocument(typedarray).promise;
           let fullText = '';
           for (let i = 1; i <= pdf.numPages; i++) {
             const page = await pdf.getPage(i);
             const textContent = await page.getTextContent();
-            // Extract text only
             const pageStrings = textContent.items.map(item => item.str);
             fullText += pageStrings.join(' ') + ' ';
           }

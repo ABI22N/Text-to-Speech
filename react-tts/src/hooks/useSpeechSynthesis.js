@@ -20,8 +20,6 @@ export const useSpeechSynthesis = () => {
   }, [synth]);
 
   const speak = ({ text, voice, rate, pitch }) => {
-    // Always cancel completely to unblock the internal browser speech queue 
-    // This fixes the "restart" breaking bug
     synth.cancel();
     
     if (text !== '') {
@@ -34,7 +32,6 @@ export const useSpeechSynthesis = () => {
           setIsSpeaking(false);
           setIsPaused(false);
         };
-        // Some browsers don't fire onend properly if interrupted, onerror covers it
         utterThis.onerror = () => {
           setIsSpeaking(false);
           setIsPaused(false);
@@ -60,7 +57,6 @@ export const useSpeechSynthesis = () => {
   };
 
   const stop = () => {
-    // Forcefully cancel and update state immediately. This fixes the unresponsive stop button.
     synth.cancel();
     setIsSpeaking(false);
     setIsPaused(false);
